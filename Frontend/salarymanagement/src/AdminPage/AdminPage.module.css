@@ -1,0 +1,1392 @@
+/* style.css */
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  display: flex;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #333;
+  color: #fff;
+  width: 220px;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+}
+
+.logo h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #ddd;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.sidebar nav ul li a.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.sidebar nav ul li a i {
+  margin-right: 10px;
+}
+
+.logout {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+}
+
+/* ================================== */
+/* DashBoard Styles                   */
+/* ================================== */
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 255px;
+}
+
+header {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+header h1 i {
+  margin-right: 10px;
+}
+
+.user-info {
+  color: #777;
+}
+
+/* Dashboard Information Styles */
+.dashboard-info {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-info h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.dashboard-info p {
+  line-height: 1.6;
+}
+
+/* Dashboard Overview Styles */
+.dashboard-overview h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.dashboard-overview .metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.dashboard-overview .metric-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.dashboard-overview .metric-card .icon {
+  font-size: 30px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.dashboard-overview .metric-card h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #555;
+}
+
+.dashboard-overview .metric-card .data {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Notifications & Alerts Styles */
+.notifications-alerts h2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.notifications-alerts .notification-card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.notifications-alerts .notification-card .icon-notification {
+  font-size: 20px;
+  color: #ffc107;
+  margin-right: 10px;
+}
+
+.notifications-alerts .notification-card p {
+  margin: 0;
+}
+
+.notifications-alerts .notification-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.notifications-alerts .notification-card a:hover {
+  text-decoration: underline;
+}
+
+/* Quick Actions Styles */
+.quick-actions h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.quick-actions .actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.quick-actions .action-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.quick-actions .action-button i {
+  margin-right: 5px;
+}
+
+.quick-actions .action-button:hover {
+  background-color: #0056b3;
+}
+
+.quick-actions .action-link {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.quick-actions .action-link i {
+  margin-right: 5px;
+}
+
+.quick-actions .action-link:hover {
+  background-color: #1e7e34;
+}
+
+/* ================================== */
+/* Employee List Styles               */
+/* ================================== */
+.employee-list h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.employee-list .table-container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.employee-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-list thead th {
+  background-color: #f8f8f8;
+  color: #555;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.employee-list tbody td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.employee-list tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.employee-list .action-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.employee-list .action-link i {
+  margin-right: 5px;
+}
+
+.employee-list .action-link:hover {
+  background-color: #eee;
+}
+
+.employee-list .action-link.view {
+  color: #007bff;
+}
+
+.employee-list .action-link.view:hover {
+  background-color: #b3d7ff;
+}
+
+.employee-list .action-link.edit {
+  color: #28a745;
+}
+
+.employee-list .action-link.edit:hover {
+  background-color: #c3e6cb;
+}
+
+.employee-list .action-button {
+  border: none;
+  padding: 8px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.employee-list .action-button i {
+  margin-right: 5px;
+}
+
+.employee-list .action-button.deactivate {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.employee-list .action-button.deactivate:hover {
+  background-color: #c82333;
+}
+
+.employee-list .action-button.activate {
+  background-color: #198754;
+  color: #fff;
+}
+
+.employee-list .action-button.activate:hover {
+  background-color: #157347;
+}
+
+.employee-list .add-new-button {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.employee-list .add-new-button .action-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.employee-list .add-new-button .action-button:hover {
+  background-color: #0056b3;
+}
+
+.page-description {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-description h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.page-description p {
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Employee Form Styles */
+.employee-list .search-container {
+  display: flex;
+  align-items: center;
+}
+
+.employee-list .search-container input[type="text"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 1em;
+}
+
+.employee-list .search-container .search-button {
+  background-color: #2ea948;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.employee-list .search-container .search-button:hover {
+  background-color: #0056b3;
+}
+
+.employee-form {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.employee-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-form .form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.employee-form .form-group input[type="text"],
+.employee-form .form-group input[type="date"],
+.employee-form .form-group input[type="password"],
+.employee-form .form-group select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.employee-form .form-group select option {
+  font-size: 16px;
+}
+
+.employee-form .form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.employee-form .submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.employee-form .submit-button i {
+  margin-right: 5px;
+}
+
+.employee-form .submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* ================================== */
+/* Salary Structures Styles           */
+/* ================================== */
+
+/* Create New Salary Structure Form Styles */
+
+/* ================================== */
+/* Payroll Styles                     */
+/* ================================== */
+
+/* minimalist <select> styling */
+.select-minimal {
+  appearance: none; /* hide native arrow in most browsers */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  background: #fff;
+  border: 1px solid #d1d5db; /* neutral‑200 */
+  border-radius: 0.375rem; /* 6 px */
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem; /* room for arrow */
+  font-size: 1em;
+  font-weight: 400;
+  color: #111827; /* neutral‑900 */
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.select-minimal::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid #6b7280;
+  border-bottom: 2px solid #6b7280;
+  transform: translateY(-60%) rotate(45deg);
+  pointer-events: none;
+}
+
+.select-minimal:focus,
+.select-minimal:hover {
+  border-color: #0056b3;
+  border-width: 2px;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.initiate-payroll h2,
+.payroll-records h2,
+.payroll-details h2,
+.manage-deductions h4,
+.manage-bonuses h4 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+.form-group input[type="date"],
+.form-group input[type="text"],
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.submit-button,
+.action-button {
+  padding: 10px 15px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button.small {
+  padding: 8px 12px;
+  font-size: 0.9em;
+}
+
+.action-button {
+  padding: 8px 12px;
+  font-size: 0.9em;
+}
+
+.action-button.primary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.action-button.primary:hover {
+  background-color: #5a6268;
+}
+
+.action-button.success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.action-button.success:hover {
+  background-color: #1e7e34;
+}
+
+.action-link {
+  display: inline-block;
+  margin-right: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.action-link:hover {
+  text-decoration: underline;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Payroll Details Specific Styles */
+.payroll-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.payroll-details h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.detail-breakdown {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.detail-breakdown h3 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.earnings-list,
+.deductions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.earnings-list li,
+.deductions-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dotted #ccc;
+}
+.earnings-list li:last-child,
+.deductions-list li:last-child {
+  border-bottom: none;
+}
+.amount {
+  font-weight: bold;
+}
+.amount.net {
+  font-size: 1.2em;
+  color: green;
+}
+.action-button {
+  display: inline-block;
+  padding: 8px 12px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.action-button.edit-earnings,
+.action-button.edit-deductions {
+  background-color: #28a745;
+  color: #fff;
+  font-size: 0.9em;
+}
+.earnings-actions,
+.deductions-actions {
+  margin-top: 10px;
+  text-align: right; /* Align the button to the right */
+}
+.action-button.success {
+  background-color: #28a745;
+  color: #fff;
+}
+.action-button.primary {
+  background-color: #007bff;
+  color: #fff;
+}
+.manage-deductions,
+.manage-bonuses {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.manage-deductions h4,
+.manage-bonuses h4 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"] {
+  width: calc(100% - 12px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+.submit-button:hover {
+  background-color: #0056b3;
+}
+.process-payroll-actions {
+  display: flex;
+  gap: 10px;
+}
+/* edit deduction style     */
+
+.edit-deduction-form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.edit-deduction-form-container h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.edit-deduction-form .form-group {
+  margin-bottom: 15px;
+}
+
+.edit-deduction-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+.edit-deduction-form .form-group input[type="text"],
+.edit-deduction-form .form-group input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.edit-deduction-form .form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.edit-deduction-form .form-actions .secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+/* ================================== */
+/* Admin User Styles                  */
+/* ================================== */
+
+.admin-user-list h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.admin-user-list .table-container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.admin-user-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-user-list thead th {
+  background-color: #f8f8f8;
+  color: #555;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-user-list tbody td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-user-list tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-user-list .action-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.admin-user-list .action-link i {
+  margin-right: 5px;
+}
+
+.admin-user-list .action-link.edit {
+  color: #28a745;
+}
+
+.admin-user-list .action-link.edit:hover {
+  background-color: #c3e6cb;
+}
+
+.admin-user-list .action-button {
+  border: none;
+  padding: 8px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.admin-user-list .action-button i {
+  margin-right: 5px;
+}
+
+.admin-user-list .action-button.delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.admin-user-list .action-button.delete:hover {
+  background-color: #c82333;
+}
+
+/* Add New Admin User Form Styles */
+.add-admin-user h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.admin-user-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-bottom: 20px;
+}
+
+.admin-user-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-user-form .form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.admin-user-form .form-group input[type="text"],
+.admin-user-form .form-group input[type="password"],
+.admin-user-form .form-group select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.admin-user-form .form-group select option {
+  font-size: 16px;
+}
+
+.admin-user-form .form-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.admin-user-form .submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.admin-user-form .submit-button i {
+  margin-right: 5px;
+}
+
+.admin-user-form .submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* ================================== */
+/* Report and Logd Styles             */
+/* ================================== */
+
+.report-generation {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.report-generation h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.report-form {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.report-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.report-form .form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.report-form .form-group select,
+.report-form .form-group input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.report-form .form-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.report-form .submit-button {
+  background-color: #17a2b8; /* Info color */
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.report-form .submit-button i {
+  margin-right: 5px;
+}
+
+.report-form .submit-button:hover {
+  background-color: #117a8b;
+}
+
+/* Audit Logs Styles */
+.audit-logs h2 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.audit-logs .table-container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.audit-logs table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.audit-logs thead th {
+  background-color: #f8f8f8;
+  color: #555;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.audit-logs tbody td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.audit-logs tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ================================== */
+/* Group Members Styles               */
+/* ================================== */
+
+.group-members-list h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.group-members-list .table-container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.group-members-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.group-members-list thead th {
+  background-color: #f8f8f8;
+  color: #555;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.group-members-list tbody td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.group-members-list tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ================================== */
+/* View Employees details Styles      */
+/* ================================== */
+
+/* Employee Details Styles */
+.employee-details h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.employee-details .table-container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.employee-details table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-details th,
+.employee-details td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.employee-details th {
+  font-weight: bold;
+  color: #555;
+  width: 150px; /* Adjust width as needed */
+}
+
+.employee-details tbody tr:last-child td,
+.employee-details tbody tr:last-child th {
+  border-bottom: none;
+}
+
+/* ================================== */
+/* Edit Employee Details Styles       */
+/* ================================== */
+
+/*(inherits from .employee-form) */
+.edit-employee-form h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.edit-employee-form .form-group input[readonly] {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  cursor: not-allowed;
+}
+
+.edit-employee-form .form-group small {
+  display: block;
+  margin-top: 5px;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.edit-employee-form .form-actions .secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.edit-employee-form .form-actions .secondary:hover {
+  background-color: #5a6268;
+}
+
+/* ================================== */
+/* Edit Salary Structures Styles      */
+/* ================================== */
+
+/* Payroll Details Styles */
+
+.x-btn {
+  --size: 26px; /* easy one‑stop resize */
+  --line: 12px; /* cross‑bar length    */
+
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  border: none;
+
+  background: #ffe6e6; /* light red base (≈ #ffe6e6) */
+  transition: background 140ms ease, transform 100ms ease;
+}
+
+/* two bars create the “×” */
+.x-btn::before,
+.x-btn::after {
+  content: "";
+  position: absolute;
+  width: var(--line);
+  height: 2px;
+  background: #c53030; /* muted red line */
+  transition: background 140ms ease;
+}
+.x-btn::before {
+  transform: rotate(45deg);
+}
+.x-btn::after {
+  transform: rotate(-45deg);
+}
+
+/* hover / focus */
+.x-btn:hover,
+.x-btn:focus-visible {
+  background: #e53e3e; /* vivid red */
+}
+.x-btn:hover::before,
+.x-btn:hover::after,
+.x-btn:focus-visible::before,
+.x-btn:focus-visible::after {
+  background: #fff; /* white cross on red */
+}
+
+/* pressed effect */
+.x-btn:active {
+  transform: scale(0.95);
+}
+.payroll-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.payroll-details h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.payroll-details h3 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #555;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.payroll-details h3:first-child {
+  margin-top: 0;
+}
+
+.payroll-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.payroll-details ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #777;
+  padding-left: 20px;
+}
+
+.payroll-details ul li:before {
+  color: #007bff;
+  display: inline-block;
+  width: 1em;
+  margin-left: 0;
+}
+
+.payroll-details ul li .amount {
+  font-weight: bold;
+  color: #333;
+}
+
+.payroll-details h3.net {
+  font-size: 20px;
+  color: #198754;
+  margin-top: 20px;
+  border-bottom: none;
+  padding-bottom: 0;
+  text-align: right;
+  font-weight: bold;
+}
+
+/*(inherits from .admin-user-form) */
+.edit-admin-user-form h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.edit-admin-user-form .form-group input[readonly] {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  cursor: not-allowed;
+}
+
+.edit-admin-user-form .form-group small {
+  display: block;
+  margin-top: 5px;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.edit-admin-user-form .form-actions .secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.edit-admin-user-form .form-actions .secondary:hover {
+  background-color: #5a6268;
+}

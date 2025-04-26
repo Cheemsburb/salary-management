@@ -1,0 +1,865 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-grow: 1;
+}
+
+/* Header */
+header.main-header {
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 15px 20px;
+  padding-left: 245px;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-branding h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header-welcome {
+  font-size: 16px;
+}
+
+/* Sidebar */
+aside.sidebar {
+  background-color: #333;
+  color: #fff;
+  width: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+aside.sidebar h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+aside.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside.sidebar li {
+  margin-bottom: 10px;
+}
+
+aside.sidebar a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+aside.sidebar a:hover {
+  background-color: #555;
+}
+
+/* Sidebar Logout */
+.sidebar-logout {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  border-top: 1px solid #555;
+  position: relative;
+  bottom: 0;
+}
+
+.sidebar-logout a {
+  display: block;
+  color: #f44336;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.sidebar-logout a:hover {
+  background-color: #d32f2f;
+}
+
+/* Main Content */
+main.dashboard-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #fff;
+  margin-left: 225px;
+}
+
+main.dashboard-content h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Overview Section (Dashboard) */
+.welcome-section {
+  background-color: #e9ecef;
+  border-left: 5px solid #007bff;
+}
+
+.latest-payroll-section {
+  background-color: #f0f8ff;
+  border-left: 5px solid #28a745;
+}
+
+.latest-payroll-section .payroll-summary {
+  padding: 10px 0;
+}
+
+.latest-payroll-section .payroll-summary p {
+  margin-bottom: 5px;
+}
+
+.latest-payroll-section .payroll-summary .label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.latest-payroll-section .payroll-summary .net-pay {
+  font-weight: bold;
+  color: #28a745;
+  font-size: 1.1em;
+}
+
+.latest-payroll-section .payroll-summary .view-full-history {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.latest-payroll-section .payroll-summary .view-full-history:hover {
+  background-color: #0056b3;
+}
+
+.latest-payroll-section .payroll-summary .view-full-history i {
+  margin-right: 5px;
+}
+
+.announcements-section {
+  background-color: #fff3cd;
+  border-left: 5px solid #ffc107;
+}
+
+.announcements-section .announcement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.announcements-section .announcement-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ffc107;
+}
+
+.announcements-section .announcement-list li:last-child {
+  border-bottom: none;
+}
+
+.quick-links-section {
+  background-color: #e0f7fa;
+  border-left: 5px solid #00acc1;
+}
+
+.overview-section {
+  background-color: #e9ecef;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.overview-section h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.overview-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.overview-section ul li {
+  margin-bottom: 8px;
+}
+
+.overview-section ul li a {
+  color: #000000;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.overview-section ul li a:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.overview-section ul li a i {
+  margin-right: 8px;
+}
+
+/* Personal Info Section */
+.personal-info-section {
+  background-color: #e0f7fa;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 5px solid #007bff;
+  border-radius: 5px;
+}
+
+.personal-info-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #555;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 10px;
+}
+
+/* Description Section (Personal Info) */
+.description-section {
+  background-color: #ffc107;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  color: #282828;
+}
+
+.description-section p {
+  margin: 0;
+}
+
+/* Info Grid (Personal Info) */
+.info-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.info-item {
+  display: flex;
+  align-items: baseline;
+}
+
+.info-item .label {
+  font-weight: bold;
+  color: #000;
+  width: 200px;
+  text-align: left;
+}
+
+.info-item .value {
+  color: #000;
+  text-align: left;
+}
+
+/* Bonuses/Deductions - No Data (Personal Info) */
+.bonuses-received-section .no-data,
+.deductions-received-section .no-data {
+  color: #000;
+  font-style: italic;
+  margin-top: 10px;
+  grid-column: 1 / -1;
+}
+
+/* Salary Structure, Bonuses, Deductions Sections (Personal Info) */
+.salary-structure-section {
+  background-color: #b9f0a4;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-left: 5px solid #28a745;
+  border-radius: 5px;
+}
+
+.bonuses-received-section {
+  background-color: #f0f094;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-left: 5px solid yellow;
+  border-radius: 5px;
+}
+
+.deductions-received-section {
+  background-color: #b3b3b3;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-left: 5px solid #000000;
+  border-radius: 5px;
+}
+
+.salary-structure-section h3,
+.bonuses-received-section h3,
+.deductions-received-section h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #000000;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 8px;
+}
+
+/* Action Button Container (View PDF - Personal Info) */
+.action-button-container {
+  padding: 20px;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+/* View PDF Button (Personal Info) */
+.view-pdf-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.view-pdf-button:hover {
+  background-color: #c82333;
+}
+
+.view-pdf-button i {
+  margin-right: 8px;
+}
+
+/* PDF Format Container */
+.pdf-container {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 30px;
+  border: 1px solid #181818;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-header {
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 15px;
+}
+
+.pdf-header h1 {
+  font-size: 24pt;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.pdf-header p {
+  font-size: 11pt;
+  color: #666;
+  margin: 2px 0;
+}
+
+.pdf-actions-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.pdf-note {
+  color: #d32f2f;
+  font-size: 10pt;
+  font-weight: bold;
+  margin: 0;
+}
+
+.download-pdf-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 11pt;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.download-pdf-button:hover {
+  background-color: #0056b3;
+}
+
+.download-pdf-button i {
+  margin-right: 8px;
+}
+
+.pdf-container section {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000000;
+}
+
+.pdf-container section:last-child {
+  border-bottom: none;
+}
+
+.pdf-container section h2 {
+  font-size: 16pt;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.info-row .label {
+  font-weight: bold;
+  width: 220px;
+  color: #555;
+}
+
+.info-row .value {
+  flex-grow: 1;
+  text-align: left;
+  color: #444;
+}
+
+.pdf-container .no-data {
+  font-style: italic;
+  color: #777;
+}
+
+/* Embedded PDF Container Styles */
+.pdf-action-top-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.pdf-action-top-right .pdf-note {
+  color: #d32f2f;
+  font-size: 10pt;
+  font-weight: bold;
+  margin-right: 20px;
+  margin-top: 5px;
+}
+
+.pdf-action-top-right .pdf-actions-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.pdf-action-top-right .download-pdf-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 11pt;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+}
+
+.pdf-action-top-right .download-pdf-button:hover {
+  background-color: #0056b3;
+}
+
+.pdf-action-top-right .download-pdf-button i {
+  margin-right: 8px;
+}
+
+.back-to-info {
+  background: #f44336;
+  color: #000000;
+  border-radius: 5px;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.back-to-info:hover {
+  background: #ea0923;
+}
+
+.back-to-info i {
+  margin-right: 5px;
+}
+
+.pdf-embedded-container {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  width: 80%;
+  margin: 0 auto 20px;
+}
+
+.pdf-embedded-container .pdf-header {
+  text-align: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #000000;
+}
+
+.pdf-embedded-container .pdf-header h2 {
+  font-size: 18pt;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.pdf-embedded-container .pdf-header p {
+  font-size: 10pt;
+  color: #666;
+  margin: 2px 0;
+}
+
+.pdf-embedded-container section {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000000;
+}
+
+.pdf-embedded-container section:last-child {
+  border-bottom: none;
+}
+
+.pdf-embedded-container section h3 {
+  font-size: 14pt;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  border-bottom: 1px solid #000000;
+}
+
+.pdf-embedded-container .info-grid {
+  margin-bottom: 10px;
+}
+
+.pdf-embedded-container .info-item .label {
+  width: 200px;
+}
+
+.pdf-embedded-container .bonuses-received-section .no-data,
+.pdf-embedded-container .deductions-received-section .no-data {
+  color: #777;
+  font-style: italic;
+  grid-column: 1 / -1;
+}
+/*Payroll history*/
+
+.payroll-header-info {
+  background-color: #f8f9fa;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+.payroll-header-info h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.payroll-note {
+  background-color: #ffc107;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+.payroll-note p {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.employee-position {
+  color: #6c757d;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 0.95em;
+}
+
+.section-description {
+  color: #555;
+  font-size: 0.9em;
+}
+
+.section-description i {
+  margin-right: 8px;
+}
+
+.payroll-history-section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+.payroll-history-section h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #000000;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 10px;
+}
+
+.payroll-table-container {
+  overflow-x: auto;
+}
+
+.payroll-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.payroll-table th,
+.payroll-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.payroll-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.payroll-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.payroll-table tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.view-payslip-button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.view-payslip-button:hover {
+  background-color: #1e7e34;
+}
+
+.view-payslip-button i {
+  margin-right: 5px;
+}
+
+/* payslip_style.css */
+
+body {
+  font-family: sans-serif;
+  font-size: 12pt;
+  line-height: 1.4;
+}
+
+.payslip-container {
+  width: 8.5in; /* Standard US Letter width for printing */
+  margin: 20px auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.payslip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 15px;
+}
+
+.company-info h2 {
+  margin: 0 0 5px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.company-info p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.payslip-id {
+  text-align: right;
+}
+
+.payslip-id p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+h3 {
+  font-size: 1.1em;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #555;
+}
+
+.value {
+  color: #444;
+}
+
+.employee-info p,
+.payroll-period p {
+  margin-bottom: 8px;
+}
+
+/* Table-like structure for earnings and deductions */
+.earnings-table,
+.deductions-table {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* Adjust column widths as needed */
+  margin-bottom: 10px;
+}
+
+.table-row {
+  display: contents; /* Makes the children direct children of the grid */
+}
+
+.table-row.header {
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.table-row > div {
+  padding: 5px 0;
+}
+
+.table-row .description {
+  text-align: left;
+}
+
+.table-row .amount {
+  text-align: right;
+}
+
+.earnings-table .total,
+.deductions-table .total {
+  font-weight: bold;
+  border-top: 1px solid #ccc;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+.totals {
+  text-align: right;
+  margin-top: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.totals .net-pay {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #000;
+}
+
+.description-note p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #777;
+}
+
+.payslip-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-size: 0.8em;
+  color: #888;
+}
+
+.payslip-actions {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.download-pdf-button {
+  background-color: #007bff; /* Blue color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* If you were to use an <a> tag */
+}
+
+.download-pdf-button:hover {
+  background-color: #0056b3;
+}
+
+.download-pdf-button i {
+  margin-right: 8px;
+}

@@ -1,0 +1,204 @@
+.salary-structure-list h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.salary-structure-list .table-container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.salary-structure-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.salary-structure-list thead th {
+  background-color: #f8f8f8;
+  color: #555;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.salary-structure-list tbody td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.salary-structure-list tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.salary-structure-list .action-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.salary-structure-list .action-link i {
+  margin-right: 5px;
+}
+
+.salary-structure-list .action-link.edit {
+  color: #28a745;
+}
+
+.salary-structure-list .action-link.edit:hover {
+  background-color: #c3e6cb;
+}
+
+.salary-structure-list .action-button {
+  border: none;
+  padding: 8px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.salary-structure-list .action-button i {
+  margin-right: 5px;
+}
+
+.salary-structure-list .action-button.delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.salary-structure-list .action-button.delete:hover {
+  background-color: #c82333;
+}
+
+.create-salary-structure h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.salary-structure-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-bottom: 20px;
+}
+
+.salary-structure-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.salary-structure-form .form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.salary-structure-form .form-group input[type="text"],
+.salary-structure-form .form-group input[type="number"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.salary-structure-form .form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.salary-structure-form .submit-button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.salary-structure-form .submit-button i {
+  margin-right: 5px;
+}
+
+.salary-structure-form .submit-button:hover {
+  background-color: #1e7e34;
+}
+
+/* (inherits from .salary-structure-form) */
+.edit-salary-structure-form h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.edit-salary-structure-form .form-group input[readonly] {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  cursor: not-allowed;
+}
+
+.edit-salary-structure-form .form-group small {
+  display: block;
+  margin-top: 5px;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.edit-salary-structure-form .form-actions .secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.edit-salary-structure-form .form-actions .secondary:hover {
+  background-color: #5a6268;
+}
+
+.secondaryButton {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.secondaryButton:hover {
+  background-color: #5a6268;
+}
