@@ -21,6 +21,17 @@ function SalaryEdit() {
   const handleSaveChanges = async (e) => {
     e.preventDefault();
 
+    for (const key in formData) {
+      if (
+        formData[key] === null ||
+        formData[key] === "" ||
+        (isNaN(formData[key]) && key !== "structure_name")
+      ) {
+        alert(`${key.replace("_", " ")} cannot be empty or null.`);
+        return;
+      }
+    }
+
     const confirmUpdate = window.confirm(
       "Are you sure you want to save these changes?"
     );
@@ -142,7 +153,7 @@ function SalaryEdit() {
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    base_salary: e.target.value,
+                    base_salary: parseFloat(e.target.value),
                   })
                 }
               />
@@ -160,7 +171,7 @@ function SalaryEdit() {
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    tax_rate: e.target.value,
+                    tax_rate: parseFloat(e.target.value),
                   })
                 }
               />
@@ -176,7 +187,7 @@ function SalaryEdit() {
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    sss_contribution: e.target.value,
+                    sss_contribution: parseFloat(e.target.value),
                   })
                 }
               />
@@ -194,7 +205,7 @@ function SalaryEdit() {
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    philhealth_contribution: e.target.value,
+                    philhealth_contribution: parseFloat(e.target.value),
                   })
                 }
               />
@@ -212,7 +223,7 @@ function SalaryEdit() {
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    pagibig_contribution: e.target.value,
+                    pagibig_contribution: parseFloat(e.target.value),
                   })
                 }
               />

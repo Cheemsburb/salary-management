@@ -9,32 +9,48 @@ function PayrollDetails() {
   const payroll = state;
   const [salaryStructure, setSalaryStructure] = useState({
     salary_structure_id: 0,
-    base_salary: "default",
-    tax_rate: "default",
-    sss_contribution: "default",
-    philhealth_contribution: "default",
-    pagibig_contribution: "default",
+    base_salary: 0,
+    tax_rate: 0,
+    sss_contribution: 0,
+    philhealth_contribution: 0,
+    pagibig_contribution: 0,
   });
 
   const [deductions, setDeductions] = useState([
     {
-      deduction_id: 1,
-      payroll_id: 1,
+      deduction_id: 0,
+      payroll_id: 0,
       description: "1",
-      amount: "1",
+      amount: 0,
       deduction_date: "2025-01-01",
     },
   ]);
 
   const [bonus, setBonus] = useState([
     {
-      bonus_id: 1,
-      payroll_id: 1,
+      bonus_id: 0,
+      payroll_id: 0,
       description: "1",
-      amount: "1",
+      amount: 0,
       bonus_date: "2025-01-01",
     },
   ]);
+
+  const [deductionAmount, setDeductionAmount] = useState({
+    deduction_id: 0,
+    payroll_id: 0,
+    description: "1",
+    amount: 0,
+    deduction_date: "2025-01-01",
+  });
+
+  const [bonusAmount, setBonusAmount] = useState({
+    deduction_id: 0,
+    payroll_id: 0,
+    description: "1",
+    amount: 0,
+    deduction_date: "2025-01-01",
+  });
 
   const [employee, setEmployee] = useState({});
 
@@ -106,7 +122,7 @@ function PayrollDetails() {
 
     const form = e.target.closest("form");
     const description = form.deduction_description.value.trim();
-    const amount = parseFloat(form.deduction_amount.value);
+    const amount = deductionAmount.amount;
     const deduction_date = form.deduction_date.value;
 
     if (!description || !amount || !deduction_date)
@@ -149,7 +165,7 @@ function PayrollDetails() {
 
     const form = e.target.closest("form");
     const description = form.bonus_description.value.trim();
-    const amount = parseFloat(form.bonus_amount.value);
+    const amount = bonusAmount.amount;
     const bonus_date = form.bonus_date.value;
 
     if (!description || !amount || !bonus_date)
@@ -463,6 +479,13 @@ function PayrollDetails() {
                   id="deduction_amount"
                   name="deduction_amount"
                   step="0.01"
+                  value={deductionAmount.amount}
+                  onChange={(e) =>
+                    setDeductionAmount((prev) => ({
+                      ...prev,
+                      amount: parseFloat(e.target.value),
+                    }))
+                  }
                 />
               </div>
               <div className={styles["form-group"]}>
@@ -498,6 +521,13 @@ function PayrollDetails() {
                   id="bonus_amount"
                   name="bonus_amount"
                   step="0.01"
+                  value={bonusAmount.amount}
+                  onChange={(e) =>
+                    setBonusAmount((prev) => ({
+                      ...prev,
+                      amount: parseFloat(e.target.value),
+                    }))
+                  }
                 />
               </div>
               <div className={styles["form-group"]}>

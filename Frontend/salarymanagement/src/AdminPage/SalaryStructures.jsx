@@ -7,6 +7,7 @@ import localStyle from "./SalaryStructures.module.css";
 function SalaryStructures() {
   const [salary_structure, setSalary_structure] = useState([]);
   const [formData, setFormData] = useState({
+    structure_name: "",
     base_salary: 0,
     tax_rate: 0,
     sss_contribution: 0,
@@ -40,6 +41,7 @@ function SalaryStructures() {
         setSalary_structure([...salary_structure, formData]);
 
         setFormData({
+          structure_name: "",
           base_salary: 0,
           tax_rate: 0,
           sss_contribution: 0,
@@ -258,6 +260,7 @@ function SalaryStructures() {
                 id="structure_name"
                 name="structure_name"
                 required
+                value={formData.structure_name}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
@@ -274,10 +277,11 @@ function SalaryStructures() {
                 name="base_salary"
                 step="0.01"
                 required
+                value={formData.base_salary}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    base_salary: e.target.value,
+                    base_salary: parseFloat(e.target.value),
                   })
                 }
               />
@@ -290,11 +294,12 @@ function SalaryStructures() {
                 name="tax_rate"
                 min="0"
                 max="100"
+                value={formData.tax_rate}
                 required
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    tax_rate: e.target.value,
+                    tax_rate: parseFloat(e.target.value),
                   })
                 }
               />
@@ -306,10 +311,11 @@ function SalaryStructures() {
                 id="sss_contribution"
                 name="sss_contribution"
                 step="0.01"
+                value={formData.sss_contribution}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    sss_contribution: e.target.value,
+                    sss_contribution: parseFloat(e.target.value),
                   })
                 }
               />
@@ -323,10 +329,11 @@ function SalaryStructures() {
                 id="philhealth_contribution"
                 name="philhealth_contribution"
                 step="0.01"
+                value={formData.philhealth_contribution}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    philhealth_contribution: e.target.value,
+                    philhealth_contribution: parseFloat(e.target.value),
                   })
                 }
               />
@@ -340,10 +347,11 @@ function SalaryStructures() {
                 id="pagibig_contribution"
                 name="pagibig_contribution"
                 step="0.01"
+                value={formData.pagibig_contribution}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    pagibig_contribution: e.target.value,
+                    pagibig_contribution: parseFloat(e.target.value),
                   })
                 }
               />

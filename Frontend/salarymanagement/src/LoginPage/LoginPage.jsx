@@ -32,7 +32,7 @@ function LoginPage() {
     } catch (error) {
       console.error("Login error:", error);
       console.log(error);
-      alert(error);
+      alert("Wrong Credentials, Please Try Again!", error);
     }
   };
 
