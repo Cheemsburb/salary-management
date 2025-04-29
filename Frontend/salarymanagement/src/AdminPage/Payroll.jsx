@@ -48,6 +48,39 @@ function Payroll() {
       alert("Server problem while deleting the payroll.");
     }
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const pay_period_start = e.target.pay_period_start.value;
+    const pay_period_end = e.target.pay_period_end.value;
+
+    if (!selectedEmployeeId || !pay_period_start || !pay_period_end) {
+      alert("Please complete all required fields.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/admin/create_payroll",
+        {
+          employee_id: selectedEmployeeId,
+          pay_period_start,
+          pay_period_end,
+        }
+      );
+
+      if (response.data.success) {
+        alert("Payroll created successfully.");
+        setPayroll([]); // Refresh data
+      } else {
+        alert("Failed to create payroll. Please try again.");
+      }
+    } catch (error) {
+      alert("Please make sure that pay period start < pay period end");
+    }
+  };
+
   return (
     <div className={styles.container}>
       <aside className={styles.sidebar}>
@@ -112,7 +145,12 @@ function Payroll() {
 
         <section className={styles["initiate-payroll"]}>
           <h2>Initiate Payroll Run</h2>
-          <form action="#" method="post" className={styles["payroll-run-form"]}>
+          <form
+            action="#"
+            method="post"
+            className={styles["payroll-run-form"]}
+            onSubmit={handleSubmit}
+          >
             {/* Employee selector */}
             <div className={styles["form-group"]}>
               <label htmlFor="employee">Employee *</label>
@@ -177,7 +215,7 @@ function Payroll() {
                 <tr>
                   <th>Payroll ID</th>
                   <th>Pay Period</th>
-                  <th># ID Employees</th>
+                  <th># ID Employee</th>
                   <th>Net Salary</th>
                   <th>Status</th>
                   <th></th>

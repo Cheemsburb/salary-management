@@ -114,6 +114,8 @@ function PayrollDetails() {
         setBonus(res.data.result);
       })
       .catch((err) => console.error("Failed to fetch bonus data:", err));
+    console.log("pay start" + payroll.pay_period_end);
+    console.log("pay end" + payroll.pay_period_start);
   }, []);
 
   // 🔽 Add just above the component’s return
@@ -490,7 +492,19 @@ function PayrollDetails() {
               </div>
               <div className={styles["form-group"]}>
                 <label htmlFor="deduction_date">Date</label>
-                <input type="date" id="deduction_date" name="deduction_date" />
+                <input
+                  type="date"
+                  id="deduction_date"
+                  name="deduction_date"
+                  min={
+                    new Date(payroll.pay_period_start)
+                      .toISOString()
+                      .split("T")[0]
+                  }
+                  max={
+                    new Date(payroll.pay_period_end).toISOString().split("T")[0]
+                  }
+                />
               </div>
               <button
                 type="submit"
@@ -532,7 +546,19 @@ function PayrollDetails() {
               </div>
               <div className={styles["form-group"]}>
                 <label htmlFor="bonus_date">Date</label>
-                <input type="date" id="bonus_date" name="bonus_date" />
+                <input
+                  type="date"
+                  id="bonus_date"
+                  name="bonus_date"
+                  min={
+                    new Date(payroll.pay_period_start)
+                      .toISOString()
+                      .split("T")[0]
+                  }
+                  max={
+                    new Date(payroll.pay_period_end).toISOString().split("T")[0]
+                  }
+                />
               </div>
               <button
                 type="submit"

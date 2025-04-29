@@ -135,11 +135,19 @@ app.post("/admin/add_employee", (req, res) => {
 
 // all info displayed on dashboard
 app.get("/admin/dashboard", (req, res) => {
-  const query =
-    "SELECT " +
-    "    (SELECT COUNT(*) FROM Employees) AS total_employees, " +
-    "    (SELECT MAX(net_salary) FROM Payroll) AS highest_net_salary, " +
-    "    (SELECT AVG(net_salary) FROM Payroll) AS average_net_salary;";
+  const query = `
+  SELECT 
+    (SELECT COUNT(*) FROM Employees WHERE access_level != 'admin') AS total_employees,
+    (SELECT MAX(p.net_salary)
+     FROM Payroll p
+     JOIN Employees e ON p.employee_id = e.employee_id
+     WHERE e.access_level != 'admin') AS highest_net_salary,
+    (SELECT AVG(p.net_salary)
+     FROM Payroll p
+     JOIN Employees e ON p.employee_id = e.employee_id
+     WHERE e.access_level != 'admin') AS average_net_salary;
+`;
+
   db.query(query, (err, results) => {
     if (err) {
       console.error("Error executing query:", err);
@@ -230,7 +238,6 @@ app.post("/admin/delete_salary_structure", (req, res) => {
 
   db.query(deleteQuery, [salary_structure_id], (err, result) => {
     if (err) {
-      // 1451 = FK‑constraint violation (structure still referenced by Employees)
       if (err.errno === 1451) {
         return res.status(409).json({
           message:
@@ -279,9 +286,10 @@ app.post("/admin/create_payroll", (req, res) => {
   db.query(query, [employee_id, pay_period_start, pay_period_end], (err) => {
     if (err) {
       console.error("Database error:", err);
-      return res
-        .status(500)
-        .json({ success: false, message: "Internal server error" });
+      return res.status(500).json({
+        success: false,
+        message: "Please make sure that pay period start < pay period end",
+      });
     } else {
       return res.status(200).json({
         success: true,
@@ -378,7 +386,8 @@ app.post("/employee/get_bonuses", (req, res) => {
 app.post("/employee/get_payroll", (req, res) => {
   const { id } = req.body;
 
-  const query = "SELECT * FROM Payroll WHERE employee_id = ?;";
+  const query =
+    "SELECT * FROM Payroll WHERE employee_id = ? AND status = 'paid';";
 
   db.query(query, id, (err, results) => {
     if (err) {
