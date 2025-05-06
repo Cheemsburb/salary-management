@@ -71,13 +71,11 @@ CREATE TABLE Bonuses (
         ON DELETE CASCADE
 )AUTO_INCREMENT = 1;
 
--- Insert sample Salary Structures
 INSERT INTO Salary_Structures (structure_name, base_salary, tax_rate, sss_contribution, philhealth_contribution, pagibig_contribution) VALUES
 ("Mid Level", 30000.00, 10.00, 1350.00, 450.00, 200.00),
 ("Junior Level", 25000.00, 8.00, 1125.00, 375.00, 200.00),
 ("Senior Level", 40000.00, 12.00, 1800.00, 600.00, 200.00);
 
--- Insert sample Employees
 INSERT INTO Employees (first_name, last_name, position, hire_date, salary_structure_id, password, access_level, username) VALUES
 ('Admin', 'User', 'System Administrator', '2017-01-01', 3, 'adminpass123', 'admin', 'Admin'),
 ('Juan', 'Dela Cruz', 'Software Engineer', '2020-01-15', 1, 'juan123', 'employee', 'Juan23'),
@@ -85,29 +83,27 @@ INSERT INTO Employees (first_name, last_name, position, hire_date, salary_struct
 ('Pedro', 'Reyes', 'HR Officer', '2021-06-10', 1, 'pedro123', 'employee', 'Pedro23'),
 ('Ana', 'Lopez', 'Manager', '2018-11-05', 3, 'ana123', 'employee', 'Ana23');
 
--- Insert sample Payroll records with date range
 INSERT INTO Payroll (employee_id, pay_period_start, pay_period_end, gross_salary, total_deductions, total_bonuses, net_salary, status) VALUES
-(1, '2025-04-01', '2025-04-15', 30000.00, 4000.00, 1000.00, 27000.00, 'paid' ),
-(2, '2025-04-01', '2025-04-15', 25000.00, 3700.00, 500.00, 21800.00, 'paid'),
-(3, '2025-04-01', '2025-04-15', 30000.00, 4200.00, 2000.00, 27800.00, 'paid'),
-(4, '2025-04-01', '2025-04-15', 40000.00, 6500.00, 3000.00, 36500.00, 'paid'),
-(1, '2025-04-16', '2025-04-30', 30000.00, 4100.00, 1500.00, 27400.00, 'paid'),
-(2, '2025-04-16', '2025-04-30', 25000.00, 3850.00, 1000.00, 22150.00, 'paid');
+(1, '2025-04-01', '2025-04-15', 30000.00, 4850.00, 1000.00, 26150.00, 'paid'),
+(2, '2025-04-01', '2025-04-15', 25000.00, 3125.00, 500.00, 22375.00, 'paid'),
+(3, '2025-04-01', '2025-04-15', 30000.00, 4550.00, 2000.00, 27450.00, 'paid'),
+(4, '2025-04-01', '2025-04-15', 40000.00, 6600.00, 3000.00, 36400.00, 'paid'),
+(1, '2025-04-16', '2025-04-30', 30000.00, 5100.00, 1500.00, 26400.00, 'paid'),
+(2, '2025-04-16', '2025-04-30', 25000.00, 3850.00, 0.00, 21150.00, 'paid');
 
--- Insert Deductions
 INSERT INTO Deductions (payroll_id, description, amount, deduction_date) VALUES
-(1, 'Late Penalty', 500.00, "2025-04-01"),
-(1, 'Coffee Fee', 3000.00, "2025-04-01"),
-(1, 'Missed', 1350.00, "2025-04-01"),
+(1, 'Late Penalty', 500.00, '2025-04-01'),
+(1, 'Coffee Fee', 3000.00, '2025-04-01'),
+(1, 'Missed', 1350.00, '2025-04-01'),
 
-(2, 'Coffee Fee', 2000.00, "2025-04-01"),
-(2, 'Missed', 1125.00, "2025-04-01"),
+(2, 'Coffee Fee', 2000.00, '2025-04-01'),
+(2, 'Missed', 1125.00, '2025-04-01'),
 
-(3, 'Coffee Fee', 3200.00, "2025-04-01"),
-(3, 'Missed', 1350.00, "2025-04-01"),
+(3, 'Coffee Fee', 3200.00, '2025-04-01'),
+(3, 'Missed', 1350.00, '2025-04-01'),
 
-(4, 'Coffee Fee', 4800.00, "2025-04-01"),
-(4, 'Missed', 1800.00, "2025-04-01"),
+(4, 'Coffee Fee', 4800.00, '2025-04-01'),
+(4, 'Missed', 1800.00, '2025-04-01'),
 
 (5, 'Coffee Fee', 3000.00, '2025-04-16'),
 (5, 'Missed', 1350.00, '2025-04-16'),
@@ -119,39 +115,9 @@ INSERT INTO Deductions (payroll_id, description, amount, deduction_date) VALUES
 (6, 'Absence Deduction', 625.00, '2025-04-16');
 
 INSERT INTO Bonuses (payroll_id, description, amount, bonus_date) VALUES
-(1, 'Performance Bonus', 1000.00, "2025-04-01"),
-(2, 'Referral Bonus', 500.00, "2025-04-01"),
-(3, 'Incentive', 2000.00, "2025-04-01"),
-(4, 'Holiday Bonus', 3000.00, "2025-04-01");
+(1, 'Performance Bonus', 1000.00, '2025-04-01'),
+(2, 'Referral Bonus', 500.00, '2025-04-01'),
+(3, 'Incentive', 2000.00, '2025-04-01'),
+(4, 'Holiday Bonus', 3000.00, '2025-04-01'),
+(5, 'Quarter Bonus', 1500.00, '2025-04-16');
 
--- Test query
--- SELECT * FROM Salary_Structures;
--- SELECT * FROM Salary_Structures WHERE salary_structure_id = 1;
--- SELECT * FROM Bonuses WHERE payroll_id = 1;
--- SELECT * FROM Deductions WHERE payroll_id = 6 UNION SELECT * FROM Deductions WHERE payroll_id = 2;
--- SELECT * FROM Payroll;
-
--- DELETE FROM Employees WHERE employee_id =2;
--- DELETE FROM Salary_Structures WHERE salary_structure_id = 1;
--- -- SELECT * FROM Employees;
--- SELECT * FROM Salary_Structures WHERE salary_structure_id = 2;
--- SELECT * from Deductions WHERE payroll_id = 2;
--- DELETE FROM Deductions WHERE deduction_id = 1;
--- UPDATE Payroll
--- SET   gross_salary      = 26000.00,
---       total_deductions  = 3850.00,
---       total_bonuses     = 1200.00,
---       net_salary        = 23350.00,
---       status            = 'processing'        -- or 'paid'
--- WHERE  payroll_id = 6;  
-
--- UPDATE Employees
--- SET first_name = "",
--- 	last_name = "",
---     position = "",
---     hire_date = "",
---     salary_structure_id = 1,
---       password = "",
---       access_level = "",
---       username = ""
--- WHERE employee_id = ?;

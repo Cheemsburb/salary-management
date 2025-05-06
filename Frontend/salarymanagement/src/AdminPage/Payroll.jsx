@@ -6,7 +6,7 @@ import styles from "./AdminPage.module.css";
 function Payroll() {
   const [employees, setEmployees] = useState([]);
   const [payroll, setPayroll] = useState([]);
-  const [selectedEmployeeId, setSelectedEmployeeId] = useState(0);
+  const [selectedEmployeeId, setSelectedEmployeeId] = useState("");
   useEffect(() => {
     axios
       .get("http://localhost:3000/employees")
@@ -72,7 +72,7 @@ function Payroll() {
 
       if (response.data.success) {
         alert("Payroll created successfully.");
-        setPayroll([]); // Refresh data
+        setPayroll([]);
       } else {
         alert("Failed to create payroll. Please try again.");
       }
@@ -151,7 +151,6 @@ function Payroll() {
             className={styles["payroll-run-form"]}
             onSubmit={handleSubmit}
           >
-            {/* Employee selector */}
             <div className={styles["form-group"]}>
               <label htmlFor="employee">Employee *</label>
               <select
@@ -159,7 +158,7 @@ function Payroll() {
                 name="employee"
                 required
                 className={styles["select-minimal"]}
-                value={selectedEmployeeId} // ← controlled
+                value={selectedEmployeeId}
                 onChange={(e) => setSelectedEmployeeId(e.target.value)}
               >
                 <option value="" disabled>
@@ -173,7 +172,6 @@ function Payroll() {
               </select>
             </div>
 
-            {/* Pay‑period start */}
             <div className={styles["form-group"]}>
               <label htmlFor="pay_period_start">Pay Period Start Date *</label>
               <input
@@ -184,7 +182,6 @@ function Payroll() {
               />
             </div>
 
-            {/* Pay‑period end */}
             <div className={styles["form-group"]}>
               <label htmlFor="pay_period_end">Pay Period End Date *</label>
               <input
@@ -195,7 +192,6 @@ function Payroll() {
               />
             </div>
 
-            {/* Submit */}
             <div
               className={styles["form-actions"]}
               style={{ justifyContent: "flex-start" }}
@@ -223,8 +219,13 @@ function Payroll() {
                 </tr>
               </thead>
               <tbody>
-                {payroll.map((payru) => {
-                  return (
+                {[...payroll]
+                  .sort(
+                    (a, b) =>
+                      new Date(b.pay_period_end).getTime() -
+                      new Date(a.pay_period_end).getTime()
+                  )
+                  .map((payru) => (
                     <tr key={payru.payroll_id}>
                       <td>{payru.payroll_id}</td>
                       <td>
@@ -274,8 +275,7 @@ function Payroll() {
                         ></button>
                       </td>
                     </tr>
-                  );
-                })}
+                  ))}
               </tbody>
             </table>
           </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AdminPage.module.css";
-import { Link, useLocation } from "react-router-dom"; // Import Link (Recommended)
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
 function EmployeeEdit() {
@@ -18,7 +18,7 @@ function EmployeeEdit() {
     salary_structure_id: employee.salary_structure_id,
     username: employee.username,
     password: employee.password,
-    access_level: "employee", // default
+    access_level: "employee",
   });
 
   useEffect(() => {

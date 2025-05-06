@@ -27,7 +27,7 @@ function SalaryStructures() {
   }, [salary_structure]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form behavior
+    e.preventDefault();
 
     try {
       const res = await axios.post(
@@ -53,18 +53,15 @@ function SalaryStructures() {
       }
     } catch (err) {
       if (err.response) {
-        // Server responded with a status code outside 2xx
         console.error("Server responded with error:", err.response.data);
         alert(
           err.response.data.message ||
             "Failed to add salary structure (server error)"
         );
       } else if (err.request) {
-        // Request was made but no response received
         console.error("No response received:", err.request);
         alert("No response from server. Please check your connection.");
       } else {
-        // Something else happened
         console.error("Request error:", err.message);
         alert("Unexpected error: " + err.message);
       }
@@ -82,9 +79,8 @@ function SalaryStructures() {
         { salary_structure_id }
       );
 
-      // 200 OK → success
       alert(res.data.message || "Salary structure deleted.");
-      // remove deleted row from local state
+
       setSalary_structure(
         salary_structure.filter(
           (s) => s.salary_structure_id !== salary_structure_id
@@ -92,7 +88,6 @@ function SalaryStructures() {
       );
     } catch (err) {
       if (err.response) {
-        // Server replied with an error status
         const status = err.response.status;
 
         if (status === 409) {
@@ -104,7 +99,7 @@ function SalaryStructures() {
           alert(
             err.response.data.message || "Salary structure not found on server."
           );
-          // Optionally remove it from UI too
+
           setSalary_structure(
             salary_structure.filter(
               (s) => s.salary_structure_id !== salary_structure_id
@@ -118,11 +113,9 @@ function SalaryStructures() {
           );
         }
       } else if (err.request) {
-        // No response received
         console.error("No response:", err.request);
         alert("No response from server. Check your connection.");
       } else {
-        // Anything else
         console.error("Error:", err.message);
         alert("Unexpected error: " + err.message);
       }

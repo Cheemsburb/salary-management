@@ -54,7 +54,6 @@ function PayrollDetails() {
 
   const [employee, setEmployee] = useState({});
 
-  //   get specific employee
   useEffect(() => {
     axios
       .post("http://localhost:3000/admin/employee", {
@@ -71,9 +70,8 @@ function PayrollDetails() {
       .catch((err) => console.error("Failed to fetch employee data:", err));
   }, []);
 
-  // 1️⃣  run only after we have a valid salary_structure_id
   useEffect(() => {
-    if (!employee.salary_structure_id) return; // guard clause
+    if (!employee.salary_structure_id) return;
 
     axios
       .post("http://localhost:3000/employee/get_salary_structure", {
@@ -86,13 +84,12 @@ function PayrollDetails() {
       .catch((err) =>
         console.error("Failed to fetch salary structure data:", err)
       );
-  }, [employee.salary_structure_id]); // 2️⃣  depend on the id, not []
+  }, [employee.salary_structure_id]);
 
   useEffect(() => {
     console.log(salaryStructure);
   }, [salaryStructure]);
 
-  // working old get deductions
   useEffect(() => {
     axios
       .post("http://localhost:3000/employee/get_deductions", {
@@ -104,7 +101,6 @@ function PayrollDetails() {
       .catch((err) => console.error("Failed to fetch deduction data:", err));
   }, []);
 
-  //   working old get bonuses
   useEffect(() => {
     axios
       .post("http://localhost:3000/employee/get_bonuses", {
@@ -118,7 +114,6 @@ function PayrollDetails() {
     console.log("pay end" + payroll.pay_period_start);
   }, []);
 
-  // 🔽 Add just above the component’s return
   const handleAddDeduction = async (e) => {
     e.preventDefault();
 
@@ -142,7 +137,6 @@ function PayrollDetails() {
       );
 
       if (data.success) {
-        // immutably append the new row the DB just created
         setDeductions((prev) => [
           ...prev,
           {
@@ -204,7 +198,6 @@ function PayrollDetails() {
     }
   };
 
-  // 🔽 Delete a single bonus row
   const handleDeleteBonus = async (bonus_id) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to remove this bonus? This cannot be undone."
@@ -218,7 +211,6 @@ function PayrollDetails() {
       );
 
       if (data.success) {
-        // immutably filter‑out the deleted row
         setBonus((prev) => prev.filter((b) => b.bonus_id !== bonus_id));
         alert("Bonus deleted successfully.");
       } else {
@@ -230,7 +222,6 @@ function PayrollDetails() {
     }
   };
 
-  // 🔽 Delete a single deduction row
   const handleDeleteDeduction = async (deduction_id) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to remove this deduction? This cannot be undone."
@@ -257,9 +248,7 @@ function PayrollDetails() {
     }
   };
 
-  // 🔽 Mark payroll as paid
   const handleMarkAsPaid = async () => {
-    // ① re‑compute figures (keep logic in one place)
     const base = Number(salaryStructure.base_salary);
     const tax = base / Number(salaryStructure.tax_rate);
     const mandatory =
@@ -273,7 +262,6 @@ function PayrollDetails() {
     const totalBonus = bonus.reduce((s, b) => s + Number(b.amount), 0);
     const netSalary = base + totalBonus - totalDeduction;
 
-    // ② ask for confirmation (simple browser dialog)
     const ok = window.confirm(
       `Mark this payroll as PAID?\n\n` +
         `Base Salary:        ₱ ${base.toLocaleString()}\n` +
@@ -298,10 +286,10 @@ function PayrollDetails() {
 
       if (data.success) {
         alert("✔ Payroll marked as paid!");
-        // ⤵️  Optionally push an update into the local UI:
+
         payroll.status = "paid";
         payroll.net_salary = netSalary;
-        // force a re‑render ↴
+
         setBonus([...bonus]);
       } else {
         alert("The server could not update the payroll. Please try again.");

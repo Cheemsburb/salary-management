@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AdminPage.module.css";
-import { Link } from "react-router-dom"; // Import Link (Recommended)
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Employees() {
@@ -16,7 +16,7 @@ function Employees() {
     salary_structure_id: "",
     username: "",
     password: "",
-    access_level: "employee", // default
+    access_level: "employee",
   });
 
   useEffect(() => {
@@ -40,7 +40,7 @@ function Employees() {
   }, [salary_structure]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form behavior
+    e.preventDefault();
 
     try {
       const res = await axios.post(
@@ -48,14 +48,11 @@ function Employees() {
         formData
       );
 
-      // Check if the response contains success = true
       if (res.data.success) {
         alert(res.data.message || "Employee added successfully!");
 
-        // Add the new employee to the list
         setEmployees([...employees, formData]);
 
-        // Reset form fields
         setFormData({
           first_name: "",
           last_name: "",
@@ -71,28 +68,23 @@ function Employees() {
       }
     } catch (err) {
       if (err.response) {
-        // Server responded with a status code outside 2xx
         console.error("Server responded with error:", err.response.data);
         alert(
           err.response.data.message || "Failed to add employee (server error)"
         );
       } else if (err.request) {
-        // Request was made but no response received
         console.error("No response received:", err.request);
         alert("No response from server. Please check your connection.");
       } else {
-        // Something else happened
         console.error("Request error:", err.message);
         alert("Unexpected error: " + err.message);
       }
     }
   };
 
-  // Delete an employee ---------------------------------------------------------
   const handleDelete = async (e, employee_id) => {
-    e.preventDefault(); // keep <button> from navigating
+    e.preventDefault();
 
-    // —–– optional: double‑check with the user –––
     const ok = window.confirm(
       `Delete employee #${employee_id}?  This can’t be undone.`
     );
@@ -105,13 +97,11 @@ function Employees() {
       );
 
       if (res.data?.success) {
-        // optimistic UI: remove the record locally
         setEmployees((prev) =>
           prev.filter((emp) => emp.employee_id !== employee_id)
         );
         alert(res.data.message || "Employee deleted.");
       } else {
-        // API replied but flagged a failure
         alert(res.data?.message || "Could not delete employee.");
       }
     } catch (err) {

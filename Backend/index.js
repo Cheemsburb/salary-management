@@ -405,6 +405,29 @@ app.post("/employee/get_payroll", (req, res) => {
   });
 });
 
+// get latest payroll
+app.post("/employee/get_payroll_latest", (req, res) => {
+  const { id } = req.body;
+
+  const query =
+    "SELECT * FROM Payroll WHERE employee_id = ? AND status = 'paid' ORDER BY pay_period_end DESC LIMIT 1;";
+
+  db.query(query, id, (err, results) => {
+    if (err) {
+      console.error("Database error:", err);
+      return res
+        .status(500)
+        .json({ success: false, message: "Internal server error" });
+    } else {
+      return res.status(200).json({
+        success: true,
+        message: "Latest Payroll retrieved successfully",
+        result: results,
+      });
+    }
+  });
+});
+
 // add deductions on specific payroll
 app.post("/admin/add_deduction", (req, res) => {
   const { payroll_id, description, amount, deduction_date } = req.body;

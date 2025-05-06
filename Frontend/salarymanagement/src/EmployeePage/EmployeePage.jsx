@@ -8,9 +8,37 @@ import { UserContext } from "./UserContext";
 function EmployeePage() {
   const { user } = useContext(UserContext);
 
+  const [payroll, setPayroll] = useState({
+    employee_id: "not available",
+    pay_period_start: "not available",
+    pay_period_end: "not available",
+    gross_salary: "not available",
+    total_deductions: "not available",
+    total_bonuses: "not available",
+    net_salary: "not available",
+    status: "not available",
+  });
+
   useEffect(() => {
-    console.log(user);
+    axios
+      .post("http://localhost:3000/employee/get_payroll_latest", {
+        id: user.id,
+      })
+      .then((res) => {
+        const data = res.data.result?.[0];
+        if (data) {
+          setPayroll(data);
+        } else {
+          console.warn("No payroll data found. Keeping defaults.");
+        }
+      })
+
+      .catch((err) => console.error("Failed to fetch payroll data:", err));
   }, []);
+
+  useEffect(() => {
+    console.log(payroll);
+  }, [payroll]);
   return (
     <div className={styles["boody"]}>
       <header className={styles["main-header"]}>
@@ -78,31 +106,59 @@ function EmployeePage() {
             </h3>
             <div className={styles["payroll-summary"]}>
               <p>
-                <span className={styles["label"]}>Pay Period:</span> April 01 -
-                April 15, 2025
+                <span className={styles["label"]}>Pay Period:</span>{" "}
+                {payroll.pay_period_start !== "not available" &&
+                payroll.pay_period_end !== "not available" ? (
+                  <>
+                    {
+                      new Date(payroll.pay_period_start)
+                        .toISOString()
+                        .split("T")[0]
+                    }{" "}
+                    -{" "}
+                    {
+                      new Date(payroll.pay_period_end)
+                        .toISOString()
+                        .split("T")[0]
+                    }
+                  </>
+                ) : (
+                  "Not available"
+                )}
               </p>
               <p>
-                <span className={styles["label"]}>Gross Salary:</span> ₱
-                30,000.00
+                <span className={styles["label"]}>Gross Salary:</span>{" "}
+                {payroll.gross_salary !== "not available"
+                  ? `₱${payroll.gross_salary}`
+                  : "Not available"}
               </p>
               <p>
-                <span className={styles["label"]}>Total Deductions:</span> ₱
-                5,000.00
+                <span className={styles["label"]}>Total Deductions:</span>{" "}
+                {payroll.total_deductions !== "not available"
+                  ? `₱${payroll.total_deductions}`
+                  : "Not available"}
               </p>
               <p>
-                <span className={styles["label"]}>Total Bonuses:</span> ₱
-                1,000.00
+                <span className={styles["label"]}>Total Bonuses:</span>{" "}
+                {payroll.total_bonuses !== "not available"
+                  ? `₱${payroll.total_bonuses}`
+                  : "Not available"}
               </p>
               <p>
                 <span className={styles["label"]}>Net Salary:</span>{" "}
-                <span className={styles["net-pay"]}>₱ 26,000.00</span>
+                <span className={styles["net-pay"]}>
+                  {payroll.net_salary !== "not available"
+                    ? `₱${payroll.net_salary}`
+                    : "Not available"}
+                </span>
               </p>
-              <a
+              <Link
+                to={"/employee/payroll"}
                 href="payroll_history.html"
                 className={styles["view-full-history"]}
               >
                 <i className="fas fa-history"></i> View Full Payroll History
-              </a>
+              </Link>
             </div>
           </section>
 
